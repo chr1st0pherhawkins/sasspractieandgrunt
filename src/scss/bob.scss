@@ -1,0 +1,33 @@
+$size:20px;
+
+@mixin change {
+	color:blue;
+	height:60px; 
+}
+
+body {
+  background-color:red;
+  color:blue;
+}
+
+.first_class {
+	.second_class {
+		h1 { 
+			@include change
+    }
+
+    p {
+     @include change;
+     width:$size * 3;
+   }
+
+ }
+
+ > h1 {
+  @include change;
+  width:$size;
+}
+}
+
+
+

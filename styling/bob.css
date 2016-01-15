@@ -1,5 +1,6 @@
 body {
-  background-color: red; }
+  background-color: red;
+  color: blue; }
 
 .first_class .second_class h1 {
   color: blue;
