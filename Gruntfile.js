@@ -41,8 +41,17 @@ module.exports = function(grunt) {
           src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match 
           dest: 'optimisedimage/'                  // Destination path prefix 
         }]
-      }
-    }
+      },
+    },
+    concat: {
+    options: {
+      separator: ';',
+    },
+    dist: {
+      src: ['js/*.js'],
+      dest: 'dist/built.js',
+    },
+  },
   });
   // Load the plugin that provides the task.
   grunt.loadNpmTasks('grunt-contrib-sass');
@@ -50,9 +59,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-scss-lint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   // Default task(s).
   grunt.registerTask('default',['uglify:build','sass','watch']);
   grunt.registerTask('sasslint',['scsslint']);
   grunt.registerTask('image',['imagemin']);
+  grunt.registerTask('concat',['concat']);
 };
